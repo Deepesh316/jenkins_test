@@ -2,23 +2,23 @@ pipeline {
     agent any
     stages {
         stage("Install dependencies") {
-            step {
+            steps {
                 sh "npm install"
             }
         }
         stage("Build") {
-            step {
+            steps {
                 sh "npm run lint"
                 sh "npm run build"
             }
         }
         stage("Test") {
-            step {
+            steps {
                 sh "npm run test"
             }
         }
         stage("Deploy") {
-            step {
+            steps {
                 sh "node ./dist/main.js"
             }
         }
